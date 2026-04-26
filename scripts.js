@@ -1,4 +1,4 @@
-
+function traduzir() {}
 
 let inputTexto = document.querySelector(".input-texto")
 let Traducaotexto = document.querySelector(".traducao")
@@ -9,7 +9,7 @@ async function traduzir() {
 
     let endereco = "https://api.mymemory.translated.net/get?q="
         + inputTexto.value
-        + "&langpair=pt|"
+        + "&langpair=pt-BR|"
         + idioma.value
 
     let resposta = await fetch(endereco)
@@ -19,7 +19,15 @@ async function traduzir() {
     console.log(dados)
 }
 
+function ouvirvoz() {
 
+    console.log("funcionou?")
+    let voz = window.webkitSpeechRecognition
+    let reconhecimento = new voz()
+    reconhecimento.lang = "pt-BR"
+    reconhecimento.onresult = (evento) =>
+        console.log(evento)
 
+}
 
-
+reconhecimento.start()
